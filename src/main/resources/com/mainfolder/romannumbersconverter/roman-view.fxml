@@ -24,7 +24,7 @@
       </MenuBar>
       <TextField fx:id="arabNumbertf" layoutX="138.0" layoutY="74.0" prefHeight="25.0" prefWidth="181.0" />
       <Label layoutX="14.0" layoutY="45.0" text="Inserisci il numero da convertire" />
-      <Button layoutX="258.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickConvert" text="Converti" />
+      <Button fx:id="btconvert" layoutX="258.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickConvert" text="Converti" />
       <TextField fx:id="romanNumbertf" layoutX="138.0" layoutY="111.0" prefHeight="25.0" prefWidth="181.0" />
       <Label layoutX="14.0" layoutY="78.0" text="Numero Arabo" />
       <Label layoutX="14.0" layoutY="115.0" text="Numero Romano" />

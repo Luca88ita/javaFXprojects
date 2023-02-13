@@ -20,7 +20,7 @@ import java.util.TimeZone;
 public class MoneyController {
 
   public static final String JDBC_Driver_MySQL = "com.mysql.cj.jdbc.Driver";
-  public static final String JDBC_URL_MySQL = "jdbc:mysql://localhost:3306/jdbc_schema?user=luca88&password=root";
+  public static final String JDBC_URL_MySQL = "jdbc:mysql://localhost:3306/jdbc_schema?user=luca88&password=root&serverTimezone=" + TimeZone.getDefault().getID();
 
   @FXML private DatePicker dpDate;
   @FXML private TableColumn<Expense, Double> tcAmount;
@@ -37,7 +37,7 @@ public class MoneyController {
     setupTable();
     hikariSetup();
     fetchExpenses();
-
+    updateTotalLabel();
   }
   private void hikariSetup() {
     HikariConfig config = new HikariConfig();
@@ -123,10 +123,10 @@ public class MoneyController {
       deleteExpense.setInt(1, selectedExpense.getIdExpense());
       deleteExpense.executeUpdate();
       expenses.remove(selectedExpense);
+      updateTotalLabel();
     } catch (IndexOutOfBoundsException | SQLException e) {
       new Alert(Alert.AlertType.ERROR, "SQL Error").showAndWait();
     }
-    updateTotalLabel();
   }
 
   void setupTable() {

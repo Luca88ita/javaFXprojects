@@ -62,7 +62,6 @@ public class RomanConverterController {
     }
   }
 
-
   private static void basicRomanNumberListInitialization(){
     if(romanList.size()==0){
       romanList.add(new RomanNumber(1,0,'I'));
